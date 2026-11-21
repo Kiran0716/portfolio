@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dark Portfolio</title>
-    <link rel="stylesheet" href="portfolio.css">
+
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="my dark img.png">
 </head>
 <body>
 
     <!-- Navbar -->
     <header>
+        <nav class="navbar">
+            <h2 class="logo">Port<span>folio.</span></h2>
 
-<nav class="navbar">
-    <h2 class="logo">Port<span>folio.</span></h2>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-btn"
-            aria-label="Switch to light mode">
-        ☀️ Light Mode
-    </button>
-</nav>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-btn"
+                    aria-label="Switch to light mode">
+                ☀️ Light Mode
+            </button>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -49,14 +49,19 @@
 
             <div class="buttons">
                 <a href="#projects" class="btn">View My Work</a>
+
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
+
+                <!-- Resume Download Button -->
+                <a href="" download="kiran update resume.pdf"
+                   class="btn resume-btn">
+                    📄 Download Resume
+                </a>
             </div>
         </div>
 
-        <div class="hero-image">        
-                <img src="my dark img.png">
-                </div>
-            
+        <div class="hero-image">
+            <img src="my dark img.png" alt="Kiran's Profile Photo">
         </div>
     </section>
 
@@ -100,6 +105,7 @@
 
         <div class="projects-container">
 
+            <!-- Project 1 -->
             <div class="project-card">
                 <div class="project-number">01</div>
                 <h3>Job Application</h3>
@@ -107,9 +113,10 @@
                     An interactive quiz website with multiple-choice
                     questions, answer selection and score tracking.
                 </p>
-                <p class="tech">HTML • CSS • JavaScript</p></a>
+                <p class="tech">HTML • CSS • JavaScript</p>
             </div>
 
+            <!-- Project 2 -->
             <div class="project-card">
                 <div class="project-number">02</div>
                 <h3>Food Website</h3>
@@ -120,20 +127,20 @@
                 <p class="tech">HTML • CSS • JavaScript</p>
             </div>
 
-       
-            <a href="https://kiran0716.github.io/ecomerce" target="_blank" class="project-card">
-                <div class="project-number">03</div>
-                <h3>Ecomerce Website</h3>
-                
-                <p>
-                    A personal portfolio to showcase my skills,
-                    projects, experience and contact information.
-                </p>
-                <p class="tech">HTML • CSS • JavaScript </p></a>
-                </div>
+            <!-- Project 3 -->
+            <a href="https://kiran0716.github.io/ecomerce"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-card">
 
-            </div>
-    
+                <div class="project-number">03</div>
+                <h3>E-commerce Website</h3>
+                <p>
+                    An online shopping website with a modern design
+                    and user-friendly interface.
+                </p>
+                <p class="tech">HTML • CSS • JavaScript</p>
+            </a>
 
         </div>
     </section>
@@ -153,70 +160,70 @@
         </div>
     </section>
 
-<script>
-    const themeToggle = document.getElementById("theme-toggle");
-    const body = document.body;
+    <!-- Dark / Light Mode Script -->
+    <script>
+        const themeToggle = document.getElementById("theme-toggle");
+        const body = document.body;
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem("portfolio-theme");
+        // Load saved theme
+        const savedTheme = localStorage.getItem("portfolio-theme");
 
-    if (savedTheme === "light") {
-        body.classList.add("light-mode");
-    }
+        if (savedTheme === "light") {
+            body.classList.add("light-mode");
+        }
 
-    // Update button text
-    function updateThemeButton() {
-        const isLight = body.classList.contains("light-mode");
+        // Update button text
+        function updateThemeButton() {
+            const isLight = body.classList.contains("light-mode");
 
-        themeToggle.textContent = isLight
-            ? "🌙 Dark Mode"
-            : "☀️ Light Mode";
+            themeToggle.textContent = isLight
+                ? "🌙 Dark Mode"
+                : "☀️ Light Mode";
 
-        themeToggle.setAttribute(
-            "aria-label",
-            isLight ? "Switch to dark mode" : "Switch to light mode"
-        );
-    }
-
-    updateThemeButton();
-
-    // Toggle theme on click
-    themeToggle.addEventListener("click", function () {
-        body.classList.toggle("light-mode");
-
-        const theme = body.classList.contains("light-mode")
-            ? "light"
-            : "dark";
-
-        localStorage.setItem("portfolio-theme", theme);
+            themeToggle.setAttribute(
+                "aria-label",
+                isLight ? "Switch to dark mode" : "Switch to light mode"
+            );
+        }
 
         updateThemeButton();
-    });
-</script>
+
+        // Toggle theme on click
+        themeToggle.addEventListener("click", function () {
+            body.classList.toggle("light-mode");
+
+            const theme = body.classList.contains("light-mode")
+                ? "light"
+                : "dark";
+
+            localStorage.setItem("portfolio-theme", theme);
+
+            updateThemeButton();
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
         <p>© 2026 Kiran Lenka | Designed with HTML & CSS</p>
     </footer>
 
+    <!-- Live Chat (Tawk.to) -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
 
+        (function () {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
 
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6ad1a7ea7238d234bfc8204c/1k51ffrlk';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
 
-
-    <!---live chat-->
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6ad1a7ea7238d234bfc8204c/1k51ffrlk';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
 
 </body>
 </html>
